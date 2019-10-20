@@ -1,0 +1,22 @@
+trigger Worker_email_trigger on Bookings__c (after insert) {
+    Bookings__c b = trigger.new[0];
+    string bw = b.Worker_Catagory__c;
+    string bp = b.Profession_Needed__c;
+    ID bc = b.Customers__c;
+    Customers__c cname = [Select Name from Customers__c where ID = :bc Limit 1];
+    string custname = cname.Name;
+    string problem = b.Problem__c;
+    string s_address = b.Street_Address__c;
+    string city = b.City__c;
+    string state = b.State__c;
+    decimal zip = b.Zip_Code__c;
+    string country = b.Country__c;
+    string contact =  b.Contact_No__c;
+    System.debug(bw);
+    SYstem.debug(bp);
+    List<Workers__c> LWE = [Select Worker_Name__c, Email__c from Workers__c where Worker_Catagory__c LIKE :bw and Skills__c LIKE :bp];
+
+    sendemail abc = new sendemail();
+    if(!LWE.isEmpty())
+    abc.sendingemail(LWE, custname, bp, problem, s_address, city, state, zip, country, contact);
+}

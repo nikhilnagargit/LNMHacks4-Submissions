@@ -1,0 +1,5 @@
+<apex:page standardController="Bookings__c">
+    <apex:detail title="Booking Details" />
+    <apex:image url="https://c.ap15.visual.force.com/resource/1571536163000/map_image"/>
+
+</apex:page>

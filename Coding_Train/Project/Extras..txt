@@ -1,0 +1,3 @@
+Salesforce org : 'codingtrain@troubleshooters.com' ;
+Salesforce password : 'nikita123';
+Salesforce included : 'visualforce','apex','Lightning','classic';

@@ -1,0 +1,12 @@
+<apex:page controller="trouble_home_controller" sidebar="false">
+    <apex:form >
+        <apex:pageBlock id="customerID">    
+            <h1>
+                Your Customer ID is: {!i}
+            </h1><br/>   
+            <apex:pageBlockButtons location="Bottom">
+                <apex:commandButton value="Let's Go" action="{!ok}"/>
+            </apex:pageBlockButtons> 
+        </apex:pageBlock>
+    </apex:form>   
+</apex:page>

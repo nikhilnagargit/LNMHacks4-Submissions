@@ -1,0 +1,32 @@
+public with sharing class trouble_home_controller {
+    public string customer_name{get;set;}
+    public string customer_email{get;set;}
+ 
+    public string  i{get;set;} 
+    public pagereference LogIn(){
+       // List<Customers__c> custlist = [Select Email__c from Customers__c];
+      /*  if(custlist.contains(customer_email))
+        {
+            PageReference pf = new PageReference('https://ap15.lightning.force.com/lightning/o/Bookings__c/new?nooverride=1&useRecordTypeCheck=1&navigationLocation=MRU_LIST&backgroundContext=%2Flightning%2Fo%2FBookings__c%2Flist%3FfilterName%3DRecent');
+            return pf;
+        }
+        else
+        {*/ 
+            Customers__c c = new Customers__c(Name = customer_name, Email__c = customer_email);
+            insert c;
+            System.debug(c);
+              i = c.ID;
+            // System.debug(' / '+customer_id);
+            PageReference pf = Page.confirm_customer_id;
+            return pf;
+      //  }  
+      //      
+     }
+       public pagereference ok()
+       {   
+      PageReference pf = new PageReference('https://ap15.lightning.force.com/lightning/o/Bookings__c/new?nooverride=1&useRecordTypeCheck=1&navigationLocation=LIST_VIEW&backgroundContext=%2Flightning%2Fn%2FHomePage');
+          
+         return pf;
+     
+      }
+}

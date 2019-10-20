@@ -1,0 +1,1 @@
+This application can be opened only by Salesforce cloud Platform by specicifc org access.
